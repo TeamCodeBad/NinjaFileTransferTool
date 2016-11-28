@@ -60,9 +60,10 @@ public class Application {
 		Authentication c = new Authentication(ipAddress, portNumber);
 		if(c.c_connect(request)){
 			File fileName = c.fileName;
-			File toSend= new XOR(true).cipher(fileName);
+			XOR thing = new XOR(true);
+			File toSend= thing.cipher(fileName);
 			SimpleFileClient sfc = new SimpleFileClient((portNumber+1), ipAddress, toSend);
-			fileName = new XOR(true).cipher(toSend);
+			thing.cipher(toSend);
 			sfc.run();
 		}
 		else{

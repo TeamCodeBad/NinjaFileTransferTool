@@ -18,15 +18,12 @@ public class XOR {
 		this.key = convertFile(Application.getFile());
 		this.state = state;
 	}
+	
 	XOR(File message){
 		this.message = convertFile(message);
 		System.out.println("Select Key for Ciphyer");
 		this.key = convertFile(Application.getFile());
 		//this.key = convertFile(key);
-	}
-	XOR(byte[] message, byte[] key){
-		this.message = message;
-		this.key = key;
 	}
 	
 	private byte[] convertFile(File filename) {
@@ -91,10 +88,10 @@ public class XOR {
 		
 		//encoding within XOR
 		if(state = true){
-			new_message = new ArmorCoder().encodeManyChunks(new_message);
+			//new_message = new ArmorCoder().encodeManyChunks(new_message);
 		}
 		else{
-			new_message = new ArmorCoder().decodedManyChunks(new_message);
+			//new_message = new ArmorCoder().decodedManyChunks(new_message);
 		}
 		
 		try {
