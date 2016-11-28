@@ -109,7 +109,7 @@ public class SimpleFileServer {
 		if(flip == true){
 			cipherFile = new XOR(2).cipher(returnedFile);
 		}else{
-			cipherFile = new XOR(1).cipher(returnedFile);
+			cipherFile = new XOR(0).cipher(returnedFile);
 		}
 		String cs = new CheckSum(cipherFile).checkSum();
 		System.out.println("Confirm this checksum with the intial checksum " + cs);

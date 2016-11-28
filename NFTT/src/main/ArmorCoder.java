@@ -136,15 +136,13 @@ public class ArmorCoder {
 		for(int i = 0; i < encodedData.length; i++) {
 			// Make proccessedData an appropriate size
 			if (counter == 0) {
-				if ((encodedData.length - i) >= 4) {
-					processedData = new byte[4];
-				}
+				processedData = new byte[4];
 			}
 			processedData[counter] = encodedData[i];
 			counter++;
 			// Once fully populated, decode the tracked bytes
 			// and add it to the chunkHolder
-			if (counter == 4 || i == encodedData.length - 1) {
+			if (counter == 4) {
 				counter = 0;
 				byte[] decodedChunks = decodeChunks(processedData);
 				for (byte b: decodedChunks) {
@@ -186,7 +184,7 @@ public class ArmorCoder {
 		// Parse out an original byte for every 8 bits
 		for(int i = 0; i < size; i++) {
 			offsetB += 8;
-			decodedData[i] = Byte.parseByte(strData.substring(offsetA, offsetB), 2);
+			decodedData[i] = (byte) Integer.parseInt(strData.substring(offsetA, offsetB), 2);
 			offsetA = offsetB;
 		}		
 		return decodedData;

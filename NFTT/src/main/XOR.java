@@ -77,7 +77,11 @@ public class XOR {
 		this.message = convertFile(returnedFile);
 		int size = message.length;
 		byte[] new_message = new byte[size];
-		
+		if(state == 2){
+			new_message = new ArmorCoder().decodedManyChunks(message);
+			message = new_message;
+			size = new_message.length;
+		}		
 		for(int i = 0; i < size; i++){
 			new_message[i] = (byte) (message[i] ^ key[i % key.length]);
 		}
@@ -86,8 +90,6 @@ public class XOR {
 		//why
 		if(state == 1){
 			new_message = new ArmorCoder().encodeManyChunks(new_message);
-		}else if(state == 2){
-			new_message = new ArmorCoder().decodedManyChunks(new_message);
 		}
 		
 		try {
