@@ -9,7 +9,7 @@ public class Authentication {
 	int portNumber;
 	File fileName;
 	boolean flip;
-	private Scanner kb;
+	public Scanner kb;
 	
 	private static Socket socket;
 	
@@ -95,6 +95,8 @@ public class Authentication {
 	public boolean c_connect(String request) throws IOException{
 		boolean type = true;
 		boolean run = true;
+		kb = new Scanner(System.in);
+		
 		while(run)
 	    {
 				socket = new Socket(this.hostAddress, this.portNumber);
@@ -127,19 +129,16 @@ public class Authentication {
 		            bw1.flush();
 		            
 		            System.out.println("Would you like to ascii armor the file? Y/N");
-		            String response = kb.nextLine();
+		            String response = kb.next();
 		            OutputStreamWriter osw2 = new OutputStreamWriter(os);
 		            BufferedWriter bw2 = new BufferedWriter(osw2);
+		            bw2.write(response);
+		            bw2.flush();
 		            if(response.equalsIgnoreCase("Y")){
 		            	flip = true;
 		            }else{
 		            	flip = false;
 		            }
-		            bw2.write(response);
-		            bw2.flush();
-		            
-		            
-		        	
 	            	type = true;
 	            	run = false;
 	            }
