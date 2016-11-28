@@ -113,7 +113,6 @@ public class XOR {
 		
 	}
 
-	
 	public void deleteFile() {
 		f.delete();
 		
