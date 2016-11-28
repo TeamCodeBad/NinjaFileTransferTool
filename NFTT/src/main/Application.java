@@ -60,7 +60,13 @@ public class Application {
 		Authentication c = new Authentication(ipAddress, portNumber);
 		if(c.c_connect(request)){
 			File fileName = c.fileName;
-			XOR thing = new XOR(true);
+			
+			XOR thing;
+			if(c.flip == true){
+				thing = new XOR(1);
+			}else{
+				thing = new XOR(0);	
+			}
 			File toSend= thing.cipher(fileName);
 			SimpleFileClient sfc = new SimpleFileClient((portNumber+1), ipAddress, toSend);
 			sfc.run();
@@ -80,7 +86,8 @@ public class Application {
 		Authentication s = new Authentication(portNumber);
 		System.out.println("Listening...");
 		if(s.s_connect(userList)){
-			SimpleFileServer sfs = new SimpleFileServer((portNumber+1));
+			
+			SimpleFileServer sfs = new SimpleFileServer((portNumber+1), s.flip);
 			sfs.run();
 		}
 		else{

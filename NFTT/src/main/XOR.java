@@ -11,9 +11,9 @@ public class XOR {
 	private byte[] key;
 	private  byte[] message;
 	File f;
-	boolean state;
+	int state;
 	
-	XOR(boolean state){
+	XOR(int state){
 		System.out.println("Select Key for Ciphyer");
 		this.key = convertFile(Application.getFile());
 		this.state = state;
@@ -84,10 +84,9 @@ public class XOR {
 		
 		//encoding within XOR
 		//why
-		if(state = true){
+		if(state == 1){
 			new_message = new ArmorCoder().encodeManyChunks(new_message);
-		}
-		else{
+		}else if(state == 2){
 			new_message = new ArmorCoder().decodedManyChunks(new_message);
 		}
 		

@@ -16,9 +16,11 @@ public class SimpleFileServer {
 	FileMerger fm = new FileMerger();
 	FileSplitter fs = new FileSplitter();
 	private String ipAddress;
+	private boolean flip;
 
-	public SimpleFileServer(int portNumber) {
+	public SimpleFileServer(int portNumber, boolean flip) {
 		this.SOCKET_PORT = portNumber;
+		this.flip = flip;
 
 	}
 
@@ -101,8 +103,14 @@ public class SimpleFileServer {
 
 		get();
 		fm.merge();
+		
 		File returnedFile = new File(fm.fileName);
-		File cipherFile = new XOR(false).cipher(returnedFile);
+		File cipherFile;
+		if(flip == true){
+			cipherFile = new XOR(2).cipher(returnedFile);
+		}else{
+			cipherFile = new XOR(0).cipher(returnedFile);
+		}
 		String cs = new CheckSum(cipherFile).checkSum();
 		System.out.println("Confirm this checksum with the intial checksum " + cs);
 //		File[] listOfFiles;

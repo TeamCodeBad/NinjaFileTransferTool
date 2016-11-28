@@ -8,6 +8,7 @@ public class Authentication {
 	String hostAddress;
 	int portNumber;
 	File fileName;
+	boolean flip;
 	private Scanner kb;
 	
 	private static Socket socket;
@@ -69,6 +70,15 @@ public class Authentication {
 	            if(checkSum != null){
 	            	System.out.println("Checksum for the file before submission: " + checkSum);
 	            }
+	            
+	            InputStreamReader isr2 = new InputStreamReader(is);
+	            BufferedReader br2 = new BufferedReader(isr2);
+	            String response = br2.readLine();
+	            if(response.equalsIgnoreCase("Y")){
+	            	flip = true;
+	            }else{
+	            	flip = false;
+	            }
 	        }
 	   socket.close();
 		return type;
@@ -107,15 +117,28 @@ public class Authentication {
 	            
 	            
 	            if(message.indexOf("Verified") != -1){
-	            	this.fileName = Application.getFile();
+	            	this.fileName = Application.getFile(); 	
 		        	String checksumFile = new CheckSum(fileName).checkSum() + "\n";
 		        	System.out.println("Checksum for selected File: " + checksumFile);
-		        	
 		        	 //OutputStream os1 = socket.getOutputStream();
 		            OutputStreamWriter osw1 = new OutputStreamWriter(os);
 		            BufferedWriter bw1 = new BufferedWriter(osw1);
 		            bw1.write(checksumFile);
 		            bw1.flush();
+		            
+		            System.out.println("Would you like to ascii armor the file? Y/N");
+		            String response = kb.nextLine();
+		            OutputStreamWriter osw2 = new OutputStreamWriter(os);
+		            BufferedWriter bw2 = new BufferedWriter(osw2);
+		            if(response.equalsIgnoreCase("Y")){
+		            	flip = true;
+		            }else{
+		            	flip = false;
+		            }
+		            bw2.write(response);
+		            bw2.flush();
+		            
+		            
 		        	
 	            	type = true;
 	            	run = false;
