@@ -15,7 +15,6 @@ public class Authentication {
 	File fileName;
 	boolean flip;
 	public Scanner kb;
-
 	private static Socket socket;
 
 	public Authentication(String ipAddress, int portNumber) {
@@ -28,7 +27,6 @@ public class Authentication {
 	}
 
 	public boolean s_connect(FS userList) throws IOException {
-
 		boolean type = false;
 		ServerSocket serverSocket = new ServerSocket(this.portNumber);
 		int counter = 4;
@@ -39,8 +37,8 @@ public class Authentication {
 			InputStreamReader isr = new InputStreamReader(is);
 			BufferedReader br = new BufferedReader(isr);
 			String request = br.readLine();
-
 			String returnMessage;
+			
 			if (verify(request, userList)) {
 				returnMessage = "Login Verified\n";
 				counter = 0;

@@ -54,7 +54,6 @@ public class XOR {
 	}
 
 	public File cipher(File returnedFile) {
-
 		this.message = convertFile(returnedFile);
 		int size = message.length;
 		byte[] new_message = new byte[size];
