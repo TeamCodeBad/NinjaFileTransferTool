@@ -83,6 +83,7 @@ public class XOR {
 		}
 		
 		//encoding within XOR
+		//why
 		if(state = true){
 			new_message = new ArmorCoder().encodeManyChunks(new_message);
 		}
