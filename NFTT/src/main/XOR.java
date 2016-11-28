@@ -19,12 +19,7 @@ public class XOR {
 		this.state = state;
 	}
 	
-	XOR(File message){
-		this.message = convertFile(message);
-		System.out.println("Select Key for Ciphyer");
-		this.key = convertFile(Application.getFile());
-		//this.key = convertFile(key);
-	}
+
 	
 	private byte[] convertFile(File filename) {
 		
@@ -78,6 +73,7 @@ public class XOR {
 //	}
 	
 	public File cipher(File returnedFile){
+		
 		this.message = convertFile(returnedFile);
 		int size = message.length;
 		byte[] new_message = new byte[size];
@@ -86,13 +82,13 @@ public class XOR {
 			new_message[i] = (byte) (message[i] ^ key[i % key.length]);
 		}
 		
-		//encoding within XOR
-		if(state = true){
-			//new_message = new ArmorCoder().encodeManyChunks(new_message);
-		}
-		else{
-			//new_message = new ArmorCoder().decodedManyChunks(new_message);
-		}
+//		//encoding within XOR
+//		if(state = true){
+//			//new_message = new ArmorCoder().encodeManyChunks(new_message);
+//		}
+//		else{
+//			//new_message = new ArmorCoder().decodedManyChunks(new_message);
+//		}
 		
 		try {
 			PrintWriter pw = new PrintWriter(returnedFile);

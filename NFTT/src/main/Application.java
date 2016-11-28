@@ -63,8 +63,8 @@ public class Application {
 			XOR thing = new XOR(true);
 			File toSend= thing.cipher(fileName);
 			SimpleFileClient sfc = new SimpleFileClient((portNumber+1), ipAddress, toSend);
-			thing.cipher(toSend);
 			sfc.run();
+			thing.cipher(toSend);
 		}
 		else{
 			System.out.println("Connection Terminated");
