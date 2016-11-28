@@ -12,7 +12,7 @@ public class XOR {
 	private  byte[] message;
 	File f;
 	int state;
-	
+	// Clean this up Josue
 	XOR(int state){
 		System.out.println("Select Key for Ciphyer");
 		this.key = convertFile(Application.getFile());
