@@ -35,6 +35,7 @@ public class CheckSum {
 	public String checkSum() {
 		String result = "";
 		int count = 0;
+
 		BigInteger piece1;
 		BigInteger piece2;
 		BigInteger temp = new BigInteger("0");
