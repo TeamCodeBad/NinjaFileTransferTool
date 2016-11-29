@@ -57,12 +57,12 @@ public class XOR {
 		int size = message.length;
 		byte[] new_message = new byte[size];
 		if (state == 2) {
-			for (int i = 0; i < message.length; i++) {
-				System.out.print((char)message[i]);
-				if (i % 50 == 0) {
-					System.out.print("\n");
-				}
-			}
+//			for (int i = 0; i < message.length; i++) {
+//				System.out.print((char)message[i]);
+//				if (i % 50 == 0) {
+//					System.out.print("\n");
+//				}
+//			}
 			new_message = new ArmorCoder().decodedManyChunks(message);
 
 			message = new_message;

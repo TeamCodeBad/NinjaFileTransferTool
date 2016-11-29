@@ -78,9 +78,9 @@ public class Application {
 			SimpleFileClient sfc = new SimpleFileClient((portNumber + 1), ipAddress, toSend);
 			sfc.run();
 			if(c.flip == true){
-				
+				thing.setFlip(2);
 			}else{
-				
+				thing.setFlip(0);
 			}
 			thing.cipher(toSend);
 		} else {
