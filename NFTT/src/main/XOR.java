@@ -33,6 +33,11 @@ public class XOR {
 			FileInputStream fis = new FileInputStream(filename);
 			fis.read(bFile);
 			fis.close();
+/*
+			for (int i = 0; i < bFile.length; i++) {
+				System.out.print((char) bFile[i]);
+			}
+*/
 			System.out.println("XOR is Done.");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -53,14 +58,7 @@ public class XOR {
 		int size = message.length;
 		byte[] new_message = new byte[size];
 		if (state == 2) {
-			for (int i = 0; i < message.length; i++) {
-				System.out.print(message[i]);
-				if (i % 50 == 0) {
-					System.out.print("\n");
-				}
-			}
 			new_message = new ArmorCoder().decodedManyChunks(message);
-
 			message = new_message;
 			size = new_message.length;
 		}
@@ -71,12 +69,6 @@ public class XOR {
 		// encoding within XOR
 		if (state == 1) {
 			new_message = new ArmorCoder().encodeManyChunks(new_message);
-			for (int i = 0; i < new_message.length; i++) {
-				System.out.print(new_message[i]);
-				if (i % 50 == 0) {
-					System.out.print("\n");
-				}
-			}
 		}
 
 		try {
