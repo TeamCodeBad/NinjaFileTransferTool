@@ -4,11 +4,6 @@ import java.io.*;
 import java.util.*;
 import java.net.*;
 
-/**
- * A class to handle authentication between a client and a server.
- * Requires a FS object to hold the list of authorized users with 
- * associated passwords.
- */
 public class Authentication {
 	String hostAddress;
 	int portNumber;
@@ -117,6 +112,7 @@ public class Authentication {
 				this.fileName = Application.getFile();
 				String checksumFile = new CheckSum(fileName).checkSum() + "\n";
 				System.out.println("Checksum for selected File: " + checksumFile);
+				// OutputStream os1 = socket.getOutputStream();
 				OutputStreamWriter osw1 = new OutputStreamWriter(os);
 				BufferedWriter bw1 = new BufferedWriter(osw1);
 				bw1.write(checksumFile);

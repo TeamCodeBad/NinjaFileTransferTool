@@ -6,8 +6,7 @@ import java.util.HashMap;
 
 /**
  * A class that can MIME Base64 encode 1 - 3 bytes of data at a time.
- * Also able to decode data. Only two methods are public that both
- * take in a byte[] and returns a modified byte[].
+ * Also able to decode data.
  */
 public class ArmorCoder {
 	

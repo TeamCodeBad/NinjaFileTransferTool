@@ -7,9 +7,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
-/**
- * A false file server that is used for verification of users during authentication.
- */
 public class FS {
 	private HashMap<String, String> hm;
 

@@ -3,10 +3,6 @@ package main;
 import java.io.*;
 import java.math.BigInteger;
 
-/**
- * A class to produce a checksum for a file based on
- * many mathematical methods and switch cases.
- */
 public class CheckSum {
 
 	private byte[] array;
@@ -24,11 +20,11 @@ public class CheckSum {
 			FileInputStream fis = new FileInputStream(filename);
 			fis.read(bFile);
 			fis.close();
-/*
+
 			for (int i = 0; i < bFile.length; i++) {
 				System.out.print((char) bFile[i]);
 			}
-*/
+
 			System.out.println("Done");
 		} catch (Exception e) {
 			e.printStackTrace();

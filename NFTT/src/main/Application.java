@@ -5,12 +5,6 @@ import java.io.IOException;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
 
-/**
- * This is the main class for the NFTT program.
- * Allows a user to become a client or server and 
- * connect via sockets to authenticate and transfer files.
- * Checksums, XOR Encryption, and ASCII Armoring are provided.
- */
 public class Application {
 
 	public static FS userList = new FS(new File("Authorizedusers.txt"));
@@ -87,6 +81,7 @@ public class Application {
 		Authentication s = new Authentication(portNumber);
 		System.out.println("Listening...");
 		if (s.s_connect(userList)) {
+
 			SimpleFileServer sfs = new SimpleFileServer((portNumber + 1), s.flip);
 			sfs.run();
 		} else {
