@@ -25,14 +25,13 @@ public class Application {
 		System.out.println("Commands:\n1. client\n2. server\n3. Exit");
 		do {
 			command = k.nextLine();
-			
 			action(command);
 			if (isTerminated != true) {
 				System.out.println("Returning to menu");
 				System.out.println("Commands:\n1. Client\n2. Server\3. Exit");
 			}
 		} while (isTerminated != true);
-	//	k.close();
+		k.close();
 	}
 
 	public static void action(String input) throws IOException {
@@ -77,11 +76,6 @@ public class Application {
 			File toSend = thing.cipher(fileName);
 			SimpleFileClient sfc = new SimpleFileClient((portNumber + 1), ipAddress, toSend);
 			sfc.run();
-			if(c.flip == true){
-				thing.setFlip(2);
-			}else{
-				thing.setFlip(0);
-			}
 			thing.cipher(toSend);
 		} else {
 			System.out.println("Connection Terminated");
