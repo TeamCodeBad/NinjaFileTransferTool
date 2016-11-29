@@ -18,6 +18,7 @@ public class XOR {
 	File f;
 	int state;
 
+
 	XOR(int state) {
 		System.out.println("Select Key for Cipher");
 		this.key = convertFile(Application.getFile());
