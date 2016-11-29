@@ -45,7 +45,7 @@ public class XOR {
 	
 	public void setKeys(byte[] key){
 		this.key = key;
-	s}
+	}
 	
 	public File cipher(File returnedFile){
 		
