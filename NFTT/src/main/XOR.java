@@ -62,16 +62,7 @@ public class XOR {
 		int size = message.length;
 		byte[] new_message = new byte[size];
 		if (state == 2) {
-<<<<<<< HEAD
 
-//			for (int i = 0; i < message.length; i++) {
-//				System.out.print((char)message[i]);
-//				if (i % 50 == 0) {
-//					System.out.print("\n");
-//				}
-//			}
-=======
->>>>>>> parent of a6f0e08... Just checking something
 			new_message = new ArmorCoder().decodedManyChunks(message);
 			message = new_message;
 			size = new_message.length;
