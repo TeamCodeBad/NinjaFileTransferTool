@@ -17,8 +17,14 @@ public class XOR {
 	private byte[] message;
 	File f;
 	int state;
+<<<<<<< HEAD
 	XOR(int state) {
 		System.out.println("Select Key for Cipher");
+=======
+	// Clean this up Josue
+	XOR(int state){
+		System.out.println("Select Key for Ciphyer");
+>>>>>>> parent of a1ce903... yes
 		this.key = convertFile(Application.getFile());
 		this.state = state;
 	}
