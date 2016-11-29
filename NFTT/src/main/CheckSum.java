@@ -24,11 +24,7 @@ public class CheckSum {
 			FileInputStream fis = new FileInputStream(filename);
 			fis.read(bFile);
 			fis.close();
-/*
-			for (int i = 0; i < bFile.length; i++) {
-				System.out.print((char) bFile[i]);
-			}
-*/
+
 			System.out.println("Done");
 		} catch (Exception e) {
 			e.printStackTrace();
