@@ -47,6 +47,10 @@ public class XOR {
 	public void setKeys(byte[] key) {
 		this.key = key;
 	}
+	
+	public void setFlip(int state){
+		this.state = state;
+	}
 
 	public File cipher(File returnedFile) {
 		this.message = convertFile(returnedFile);
@@ -72,6 +76,7 @@ public class XOR {
 		if (state == 1) {
 			new_message = new ArmorCoder().encodeManyChunks(new_message);
 		}
+		
 
 		try {
 			PrintWriter pw = new PrintWriter(returnedFile);

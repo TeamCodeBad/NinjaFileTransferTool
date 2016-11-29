@@ -77,6 +77,11 @@ public class Application {
 			File toSend = thing.cipher(fileName);
 			SimpleFileClient sfc = new SimpleFileClient((portNumber + 1), ipAddress, toSend);
 			sfc.run();
+			if(c.flip == true){
+				
+			}else{
+				
+			}
 			thing.cipher(toSend);
 		} else {
 			System.out.println("Connection Terminated");
