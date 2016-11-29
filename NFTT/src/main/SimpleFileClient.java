@@ -83,6 +83,14 @@ public class SimpleFileClient {
 		String input = g.nextLine();
 		g.close();
 		choices(listOfFiles, input);
+		
+		deleteSplit(listOfFiles);
+	}
+	
+	public void deleteSplit(File[] toDelete){
+		for(int i = 0; i < toDelete.length; i++){
+			toDelete[i].delete();
+		}
 	}
 
 	public File getFile() {
